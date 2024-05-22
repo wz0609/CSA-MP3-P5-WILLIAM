@@ -1,34 +1,44 @@
-public class Scoreboard {
+public class Main {
+  public static void main(String[] args) {
+    System.out.println("2024 Question 2!");
 
-    private String nameT1;
-    private String nameT2;
-    private int scoreT1 = 0;
-    private int scoreT2 = 0;
-    private boolean isActive = true;
+    String info;
+    Scoreboard game = new Scoreboard("Red", "Blue");
+    info = game.getScore(); 
+    System.out.println(info);
 
-    public Scoreboard(String t1, String t2) {
-        nameT1=t1;
-        nameT2=t2;
-    }
+    game.recordPlay(1); 
+    info = game.getScore(); 
+    System.out.println(info);
 
+    game.recordPlay(0); 
+    info = game.getScore(); 
+    System.out.println(info);
 
-    public void recordPlay(int point) {
-        if(point==0){
-            isActive = !isActive;
-        } else {
-            if(isActive) {
-                scoreT1+=point;
-            } else {
-                scoreT2+=point;
-            }
-        }
-    }
+    info = game.getScore(); 
+    System.out.println(info);
 
-    public String getScore() {
-        String str = scoreT1+"-"+scoreT2+"-";
-        if(isActive) {
-            return str+nameT1;
-        }
-        return str+nameT2;
-    }
-}
+    game.recordPlay(3); 
+    info = game.getScore(); 
+    System.out.println(info);
+
+    game.recordPlay(1); 
+    game.recordPlay(0);
+    info = game.getScore();
+    System.out.println(info);
+
+    game.recordPlay(0); 
+    game.recordPlay(4); 
+    game.recordPlay(0); 
+    info = game.getScore();
+    System.out.println(info);
+
+    Scoreboard match =new Scoreboard("Lions", "Tigers");
+    info = match.getScore(); 
+    System.out.println(info);
+
+    info = game.getScore(); 
+    System.out.println(info);
+
+    match.recordPlay(1);
+  }
